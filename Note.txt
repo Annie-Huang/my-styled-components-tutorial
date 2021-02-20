@@ -34,3 +34,10 @@ as long as they attach the passed className prop to a DOM element.
     export const Link = ({ className, children }) => (
       <a className={className}>{children}</a>
     );
+
+Passed props: styled-components filters non-standard attributes and not to pass to DOM:
+e.g.inputColor prop is not passed to the DOM, but type and defaultValue are.
+    export const Input = styled.input`...`
+    <Input defaultValue="@geelen" type="text" inputColor="rebeccapurple" />
+    This will translate to (in devtool)
+    <input type="text" class="sc-crrsfI itEbJL" value="@geelen">

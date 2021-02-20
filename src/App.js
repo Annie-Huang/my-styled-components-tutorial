@@ -12,6 +12,7 @@ import {
 } from './components/Button';
 import { Title } from './components/Typography';
 import { Link, StyledLink } from './components/Link';
+import { Input } from './components/Input';
 
 const Container = styled.div`
   text-align: center;
@@ -66,6 +67,11 @@ function App() {
         <Link>Unstyled, boring Link</Link>
         <br />
         <StyledLink>Styled, exciting Link</StyledLink>
+      </Container>
+      <Container>
+        {/*Render a styled text input with the standard input color, and one with a custom input color*/}
+        <Input defaultValue='@probablyup' type='text' />
+        <Input defaultValue='@geelen' type='text' inputColor='rebeccapurple' />
       </Container>
     </div>
   );
