@@ -77,3 +77,6 @@ export const Button4 = styled.button`
   border-radius: 3px;
   display: block;
 `;
+export const ReversedButton = (props) => (
+  <Button4 {...props} children={props.children.split('').reverse()} />
+);

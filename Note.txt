@@ -28,3 +28,9 @@ Extending Styles
     <Button4 as={ReversedButton}>
       Custom Button with Normal Button styles
     </Button4>
+
+The styled method works perfectly on all of your own or any third-party component
+as long as they attach the passed className prop to a DOM element.
+    export const Link = ({ className, children }) => (
+      <a className={className}>{children}</a>
+    );

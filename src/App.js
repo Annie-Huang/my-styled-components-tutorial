@@ -6,10 +6,12 @@ import {
   Button2,
   Button3,
   Button4,
+  ReversedButton,
   TomatoButton2,
   TomatoButton3,
 } from './components/Button';
 import { Title } from './components/Typography';
+import { Link, StyledLink } from './components/Link';
 
 const Container = styled.div`
   text-align: center;
@@ -22,10 +24,6 @@ const Wrapper = styled.section`
 `;
 
 function App() {
-  const ReversedButton = (props) => (
-    <Button4 {...props} children={props.children.split('').reverse()} />
-  );
-
   return (
     <div className='App'>
       <Container>
@@ -63,6 +61,11 @@ function App() {
         <Button4 as={ReversedButton}>
           Custom Button with Normal Button styles
         </Button4>
+      </Container>
+      <Container>
+        <Link>Unstyled, boring Link</Link>
+        <br />
+        <StyledLink>Styled, exciting Link</StyledLink>
       </Container>
     </div>
   );
