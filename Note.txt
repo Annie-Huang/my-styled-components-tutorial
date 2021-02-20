@@ -17,3 +17,8 @@ Adapting based on props:
 
 Extending Styles
     export const TomatoButton = styled(Button2)`...`
+
+"as" polymorphic prop (introduced in v4): Will change the element name
+    <Button3 as='a' href='/'>Link with Button styles</Button3>
+    change to:
+    <a href="/" class="sc-eCssSg bpkTHM">Link with Button styles</a>

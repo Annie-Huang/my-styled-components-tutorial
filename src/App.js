@@ -1,6 +1,13 @@
 import './App.css';
 import styled from 'styled-components';
-import { Button, Button1, Button2, TomatoButton } from './components/Button';
+import {
+  Button,
+  Button1,
+  Button2,
+  Button3,
+  TomatoButton2,
+  TomatoButton3,
+} from './components/Button';
 import { Title } from './components/Typography';
 
 const Container = styled.div`
@@ -29,7 +36,22 @@ function App() {
       </Container>
       <Container>
         <Button2>Normal Button</Button2>
-        <TomatoButton>Tomato Button</TomatoButton>
+        <TomatoButton2>Tomato Button</TomatoButton2>
+      </Container>
+      <Container
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'start',
+        }}
+      >
+        <Button3>Normal Button</Button3>
+        <Button3 as='a' href='/'>
+          Link with Button styles
+        </Button3>
+        <TomatoButton3 as='a' href='/'>
+          Link with Tomato Button styles
+        </TomatoButton3>
       </Container>
     </div>
   );
