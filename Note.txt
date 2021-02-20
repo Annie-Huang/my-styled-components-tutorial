@@ -10,3 +10,8 @@ Learning from version 5:
 
 C:\react>npx create-react-app my-styled-components-tutorial
 C:\react\my-styled-components-tutorial>npm install --save styled-components
+
+
+Adapting based on props:
+    background: ${(props) => (props.primary ? 'palevioletred' : 'white')};
+
