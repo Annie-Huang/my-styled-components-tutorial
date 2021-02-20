@@ -63,3 +63,17 @@ export const TomatoButton3 = styled(Button3)`
   color: tomato;
   border-color: tomato;
 `;
+
+/*
+ * "as" polymorphic prop works with custom components too!
+ */
+export const Button4 = styled.button`
+  display: inline-block;
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  display: block;
+`;

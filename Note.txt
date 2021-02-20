@@ -22,3 +22,9 @@ Extending Styles
     <Button3 as='a' href='/'>Link with Button styles</Button3>
     change to:
     <a href="/" class="sc-eCssSg bpkTHM">Link with Button styles</a>
+
+"as" polymorphic prop works with custom components too!
+    const ReversedButton = props => <Button {...props} children={props.children.split('').reverse()} />
+    <Button4 as={ReversedButton}>
+      Custom Button with Normal Button styles
+    </Button4>

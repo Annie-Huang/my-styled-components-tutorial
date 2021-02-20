@@ -5,6 +5,7 @@ import {
   Button1,
   Button2,
   Button3,
+  Button4,
   TomatoButton2,
   TomatoButton3,
 } from './components/Button';
@@ -21,6 +22,10 @@ const Wrapper = styled.section`
 `;
 
 function App() {
+  const ReversedButton = (props) => (
+    <Button4 {...props} children={props.children.split('').reverse()} />
+  );
+
   return (
     <div className='App'>
       <Container>
@@ -52,6 +57,12 @@ function App() {
         <TomatoButton3 as='a' href='/'>
           Link with Tomato Button styles
         </TomatoButton3>
+      </Container>
+      <Container>
+        <Button4>Normal Button</Button4>
+        <Button4 as={ReversedButton}>
+          Custom Button with Normal Button styles
+        </Button4>
       </Container>
     </div>
   );
