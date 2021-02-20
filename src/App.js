@@ -1,14 +1,14 @@
 import './App.css';
-import styled from 'styled-components'
-import {Button} from './components/Button';
+import styled from 'styled-components';
+import { Button } from './components/Button';
 
 const Container = styled.div`
   text-align: center;
-`
+`;
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Container>
         <Button>Normal Button</Button>
         <Button primary>Primary Button</Button>
