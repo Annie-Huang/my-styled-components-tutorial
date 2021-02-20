@@ -27,3 +27,21 @@ export const Button1 = styled.button`
   border: 2px solid palevioletred;
   border-radius: 3px;
 `;
+
+/*
+ * Extending Styles
+ */
+// The Button from the last section without the interpolations
+export const Button2 = styled.button`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+// A new component based on Button, but with some override styles
+export const TomatoButton = styled(Button2)`
+  color: tomato;
+  border-color: tomato;
+`;

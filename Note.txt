@@ -15,3 +15,5 @@ C:\react\my-styled-components-tutorial>npm install --save styled-components
 Adapting based on props:
     background: ${(props) => (props.primary ? 'palevioletred' : 'white')};
 
+Extending Styles
+    export const TomatoButton = styled(Button2)`...`

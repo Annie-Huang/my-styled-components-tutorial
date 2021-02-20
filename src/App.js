@@ -1,6 +1,6 @@
 import './App.css';
 import styled from 'styled-components';
-import { Button, Button1 } from './components/Button';
+import { Button, Button1, Button2, TomatoButton } from './components/Button';
 import { Title } from './components/Typography';
 
 const Container = styled.div`
@@ -23,8 +23,14 @@ function App() {
       <Wrapper>
         <Title>Hello World!</Title>
       </Wrapper>
-      <Button1>Normal</Button1>
-      <Button1 primary>Primary</Button1>
+      <Container>
+        <Button1>Normal</Button1>
+        <Button1 primary>Primary</Button1>
+      </Container>
+      <Container>
+        <Button2>Normal Button</Button2>
+        <TomatoButton>Tomato Button</TomatoButton>
+      </Container>
     </div>
   );
 }
