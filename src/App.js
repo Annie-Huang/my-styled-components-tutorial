@@ -13,7 +13,7 @@ import {
 import { Title } from './components/Typography';
 import { Link, StyledLink } from './components/Link';
 import { Input } from './components/Input';
-import { Thing } from './components/Thing';
+import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
 
 const Container = styled.div`
   text-align: center;
@@ -83,6 +83,18 @@ function App() {
         <div className='something-else'>
           <Thing>Splendid.</Thing>
         </div>
+      </Container>
+      <Container>
+        <Thing2>
+          <label htmlFor='foo-button' className='something'>
+            Mystery button
+          </label>
+          <button id='foo-button'>What do I do?</button>
+        </Thing2>
+      </Container>
+      <Container>
+        <GlobalStyle />
+        <Thing3>I'm blue, da ba dee da ba daa</Thing3>
       </Container>
     </div>
   );

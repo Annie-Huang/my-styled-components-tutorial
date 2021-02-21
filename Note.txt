@@ -4,7 +4,7 @@ https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6b
 
 Need to read:
 https://github.com/styled-components/jest-styled-components         <<< Need to rea this to see if you can do testing.
-
+https://styled-components.com/docs/api#helpers                      <<< About create GlobalStyle
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ====================================================================
@@ -67,7 +67,22 @@ Pseudoelements, pseudoselectors, and nesting:
     }
 
 
+If you put selectors in without the ampersand (the '&' sign), they will refer to children of the component.
+    export const Thing2 = styled.div`
+      .something {
+        border: 1px solid; // an element labeled ".something" inside <Thing>
+        display: block;
+      }
+    `;
 
+
+The ampersand (the '&' sign) can be used to increase the specificity of rules on the component; this can be useful if you are
+dealing with a mixed styled-components and vanilla CSS environment where there might be conflicting styles:
+    const Thing3 = styled.div`
+      && {
+        color: blue;
+      }
+    `
 
 
 

@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
+// Pseudoelements, pseudoselectors, and nesting:
 export const Thing = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
   color: blue;
 
@@ -25,5 +26,28 @@ export const Thing = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
   // !!! Interesting, i didn't konw this before...
   .something-else & {
     border: 1px solid; // <Thing> inside another element labeled ".something-else"
+  }
+`;
+
+// If you put selectors in without the ampersand (the '&' sign), they will refer to children of the component.
+export const Thing2 = styled.div`
+  color: blue;
+
+  .something {
+    border: 1px solid; // an element labeled ".something" inside <Thing>
+    display: block;
+  }
+`;
+
+export const Thing3 = styled.div`
+  // & {
+  && {
+    color: blue;
+  }
+`;
+
+export const GlobalStyle = createGlobalStyle`
+  div${Thing3} {
+    color: red;
   }
 `;
