@@ -16,24 +16,28 @@ Learning from version 5:
 C:\react>npx create-react-app my-styled-components-tutorial
 C:\react\my-styled-components-tutorial>npm install --save styled-components
 
-
+1.
 Adapting based on props:
     background: ${(props) => (props.primary ? 'palevioletred' : 'white')};
 
+2.
 Extending Styles
     export const TomatoButton = styled(Button2)`...`
 
+3.
 "as" polymorphic prop (introduced in v4): Will change the element name
     <Button3 as='a' href='/'>Link with Button styles</Button3>
     change to:
     <a href="/" class="sc-eCssSg bpkTHM">Link with Button styles</a>
 
+4.
 "as" polymorphic prop works with custom components too!
     const ReversedButton = props => <Button {...props} children={props.children.split('').reverse()} />
     <Button4 as={ReversedButton}>
       Custom Button with Normal Button styles
     </Button4>
 
+5.
 The styled method works perfectly on all of your own or any third-party component
 as long as they attach the passed className prop to a DOM element.
     // This could be react-router-dom's Link for example
@@ -41,6 +45,7 @@ as long as they attach the passed className prop to a DOM element.
       <a className={className}>{children}</a>
     );
 
+6.
 Passed props: styled-components filters non-standard attributes and not to pass to DOM:
 e.g.inputColor prop is not passed to the DOM, but type and defaultValue are.
     export const Input = styled.input`...`
@@ -48,6 +53,7 @@ e.g.inputColor prop is not passed to the DOM, but type and defaultValue are.
     This will translate to (in devtool)
     <input type="text" class="sc-crrsfI itEbJL" value="@geelen">
 
+7.
 Define Styled Components outside of the render method
     const StyledWrapper = styled.div`
       /* ... */
@@ -56,7 +62,7 @@ Define Styled Components outside of the render method
       return <StyledWrapper>{message}</StyledWrapper>
     }
 
-
+8.
 Pseudoelements, pseudoselectors, and nesting:
     Check Thing.js. Interestingly I didn't know this before:
     <div className='something-else'>
@@ -66,7 +72,7 @@ Pseudoelements, pseudoselectors, and nesting:
         border: 1px solid; // <Thing> inside another element labeled ".something-else"
     }
 
-
+9.
 If you put selectors in without the ampersand (the '&' sign), they will refer to children of the component.
     export const Thing2 = styled.div`
       .something {
@@ -75,7 +81,7 @@ If you put selectors in without the ampersand (the '&' sign), they will refer to
       }
     `;
 
-
+10.
 The ampersand (the '&' sign) can be used to increase the specificity of rules on the component; this can be useful if you are
 dealing with a mixed styled-components and vanilla CSS environment where there might be conflicting styles:
     const Thing3 = styled.div`
@@ -84,8 +90,23 @@ dealing with a mixed styled-components and vanilla CSS environment where there m
       }
     `
 
-
-
+11.
+createGlobalStyle: things like CSS resets or base stylesheets can be applied.
+https://styled-components.com/docs/api#helpers
+    import { createGlobalStyle, ThemeProvider } from 'styled-components'
+    const GlobalStyle = createGlobalStyle`
+      body {
+        color: ${props => (props.whiteColor ? 'white' : 'black')};
+        font-family: ${props => props.theme.fontFamily};
+      }
+    `
+    // later in your app
+    <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
+      <React.Fragment>
+        <Navigation /> {/* example of other top-level stuff */}
+        <GlobalStyle whiteColor />
+      </React.Fragment>
+    </ThemeProvider>
 
 
 

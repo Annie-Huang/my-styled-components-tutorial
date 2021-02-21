@@ -45,8 +45,7 @@ export const Thing3 = styled.div`
     color: blue;
   }
 `;
-
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`  // createGlobalStyle is available after v4, web only.
   div${Thing3} {
     color: red;
   }
