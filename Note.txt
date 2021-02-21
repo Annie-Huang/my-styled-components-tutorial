@@ -1,9 +1,12 @@
 https://styled-components.com/
 https://stylis.js.org/
+https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21
+https://github.com/styled-components/jest-styled-components         <<< Need to rea this to see if you can do testing.
+
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ====================================================================
-Up to: https://styled-components.com/docs/basics#motivation
+Up to: https://styled-components.com/docs/basics#coming-from-css
 
 
 Learning from version 5:
@@ -31,6 +34,7 @@ Extending Styles
 
 The styled method works perfectly on all of your own or any third-party component
 as long as they attach the passed className prop to a DOM element.
+    // This could be react-router-dom's Link for example
     export const Link = ({ className, children }) => (
       <a className={className}>{children}</a>
     );
@@ -41,3 +45,37 @@ e.g.inputColor prop is not passed to the DOM, but type and defaultValue are.
     <Input defaultValue="@geelen" type="text" inputColor="rebeccapurple" />
     This will translate to (in devtool)
     <input type="text" class="sc-crrsfI itEbJL" value="@geelen">
+
+Define Styled Components outside of the render method
+    const StyledWrapper = styled.div`
+      /* ... */
+    `
+    const Wrapper = ({ message }) => {
+      return <StyledWrapper>{message}</StyledWrapper>
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
