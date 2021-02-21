@@ -1,6 +1,8 @@
 https://styled-components.com/
 https://stylis.js.org/
 https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21
+
+Need to read:
 https://github.com/styled-components/jest-styled-components         <<< Need to rea this to see if you can do testing.
 
 
@@ -55,7 +57,14 @@ Define Styled Components outside of the render method
     }
 
 
-
+Pseudoelements, pseudoselectors, and nesting:
+    Check Thing.js. Interestingly I didn't know this before:
+    <div className='something-else'>
+      <Thing>Splendid.</Thing>
+    </div>
+    .something-else & {
+        border: 1px solid; // <Thing> inside another element labeled ".something-else"
+    }
 
 
 

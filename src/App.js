@@ -13,6 +13,7 @@ import {
 import { Title } from './components/Typography';
 import { Link, StyledLink } from './components/Link';
 import { Input } from './components/Input';
+import { Thing } from './components/Thing';
 
 const Container = styled.div`
   text-align: center;
@@ -72,6 +73,16 @@ function App() {
         {/*Render a styled text input with the standard input color, and one with a custom input color*/}
         <Input defaultValue='@probablyup' type='text' />
         <Input defaultValue='@geelen' type='text' inputColor='rebeccapurple' />
+      </Container>
+      <Container>
+        <Thing>Hello world!</Thing>
+        <Thing>How ya doing?</Thing>
+        <Thing className='something'>The sun is shining...</Thing>
+        <div>Pretty nice day today.</div>
+        <Thing>Don't you think?</Thing>
+        <div className='something-else'>
+          <Thing>Splendid.</Thing>
+        </div>
       </Container>
     </div>
   );
