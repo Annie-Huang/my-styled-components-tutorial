@@ -123,7 +123,13 @@ https://styled-components.com/docs/api#helpers
       flex-direction: column;
       line-height: 20px;
     `}
-
+  ${props =>
+    !props.hasInlineLabel &&
+    css`                                <<< I am confused.....
+      &:hover:not(:focus) {
+        border-radius: ${theme.borders.borderRadiusSmall}px;
+      }
+    `}
 
 
 
