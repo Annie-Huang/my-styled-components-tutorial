@@ -109,6 +109,21 @@ https://styled-components.com/docs/api#helpers
     </ThemeProvider>
 
 
+12. When to use css`` and when no need to use it:
+  ${props =>
+    !props.disabled &&
+    ` &:hover label{
+        background-color: ${theme.colors.blueInfoLight};
+        transition: background-color 0.1s ease-out;
+        border-radius: ${theme.borders.borderRadiusSmall}px 0 0 ${theme.borders.borderRadiusSmall}px;
+  }`}
+  ${props =>
+    props.vertical &&
+    css`
+      flex-direction: column;
+      line-height: 20px;
+    `}
+
 
 
 
