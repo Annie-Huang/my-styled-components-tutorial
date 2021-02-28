@@ -40,10 +40,16 @@ Extending Styles
 5.
 The styled method works perfectly on all of your own or any third-party component
 as long as they attach the passed className prop to a DOM element.
+    <Link>Unstyled, boring Link</Link>
+    <StyledLink>Styled, exciting Link</StyledLink>
     // This could be react-router-dom's Link for example
     export const Link = ({ className, children }) => (
       <a className={className}>{children}</a>
     );
+    export const StyledLink = styled(Link)`
+      color: palevioletred;
+      font-weight: bold;
+    `;
 
 6.
 Passed props: styled-components filters non-standard attributes and not to pass to DOM:
@@ -54,7 +60,7 @@ e.g.inputColor prop is not passed to the DOM, but type and defaultValue are.
     <input type="text" class="sc-crrsfI itEbJL" value="@geelen">
 
 7.
-Define Styled Components outside of the render method
+Define Styled Components outside of the render method to prevent keep recreation
     const StyledWrapper = styled.div`
       /* ... */
     `
@@ -68,12 +74,20 @@ Pseudoelements, pseudoselectors, and nesting:
     <div className='something-else'>
       <Thing>Splendid.</Thing>
     </div>
-    .something-else & {
-        border: 1px solid; // <Thing> inside another element labeled ".something-else"
-    }
+    export const Thing = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
+      .something-else & {
+          border: 1px solid; // Do border style on <Thing> element that is inside another element labeled ".something-else"
+      }
+    `
 
 9.
 If you put selectors in without the ampersand (the '&' sign), they will refer to children of the component.
+    <Thing2>
+      <label htmlFor='foo-button' className='something'>
+        Mystery button
+      </label>
+      ...
+    </Thing2>
     export const Thing2 = styled.div`
       .something {
         border: 1px solid; // an element labeled ".something" inside <Thing>
@@ -86,9 +100,15 @@ The ampersand (the '&' sign) can be used to increase the specificity of rules on
 dealing with a mixed styled-components and vanilla CSS environment where there might be conflicting styles:
     const Thing3 = styled.div`
       && {
-        color: blue;
+        color: blue;        <<< Higher specificity.
       }
     `
+    export const GlobalStyle = createGlobalStyle`  // createGlobalStyle is available after v4, web only.
+      div${Thing3} {
+        color: red;
+      }
+    `;
+
 
 11.
 createGlobalStyle: things like CSS resets or base stylesheets can be applied.
