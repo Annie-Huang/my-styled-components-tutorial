@@ -12,7 +12,7 @@ import {
 } from './components/Button';
 import { Title } from './components/Typography';
 import { Link, StyledLink } from './components/Link';
-import { Input, Input2 } from './components/Input';
+import { Input, Input2, PasswordInput2 } from './components/Input';
 import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
 
 const Container = styled.div`
@@ -100,6 +100,12 @@ function App() {
         <Input2 placeholder='A small text input' />
         <br />
         <Input2 placeholder='A bigger text input' size='2em' />
+      </Container>
+      <Container>
+        <Input2 placeholder='A bigger text input' size='2em' />
+        <br />
+        {/* Notice we can still use the size attr from Input */}
+        <PasswordInput2 placeholder='A bigger password input' size='2em' />
       </Container>
     </div>
   );

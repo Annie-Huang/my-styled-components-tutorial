@@ -27,3 +27,11 @@ export const Input2 = styled.input.attrs((props) => ({
   margin: ${(props) => props.size};
   padding: ${(props) => props.size};
 `;
+
+// Input's attrs will be applied first, and then this attrs obj
+export const PasswordInput2 = styled(Input2).attrs({
+  type: 'password',
+})`
+  // similarly, border will override Input's border
+  border: 2px solid aqua;
+`;
