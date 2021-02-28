@@ -8,7 +8,7 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ====================================================================
-Up to: https://styled-components.com/docs/basics#coming-from-css
+Up to: https://styled-components.com/docs/basics#attaching-additional-props
 
 
 Learning from version 5:
@@ -60,7 +60,8 @@ e.g.inputColor prop is not passed to the DOM, but type and defaultValue are.
     <input type="text" class="sc-crrsfI itEbJL" value="@geelen">
 
 7.
-Define Styled Components outside of the render method to prevent keep recreation
+Define Styled Components outside of the render method to avoid recreation on every single render pass.
+Defining a styled component within the render method will thwart caching and drastically slow down rendering speed, and should be avoided.
     const StyledWrapper = styled.div`
       /* ... */
     `
@@ -98,6 +99,10 @@ If you put selectors in without the ampersand (the '&' sign), they will refer to
 10.
 The ampersand (the '&' sign) can be used to increase the specificity of rules on the component; this can be useful if you are
 dealing with a mixed styled-components and vanilla CSS environment where there might be conflicting styles:
+    <GlobalStyle />
+    <Thing3>
+      I'm blue, da ba dee da ba daa
+    </Thing3>
     const Thing3 = styled.div`
       && {
         color: blue;        <<< Higher specificity.
@@ -128,8 +133,22 @@ https://styled-components.com/docs/api#helpers
       </React.Fragment>
     </ThemeProvider>
 
+12.
+.attrs constructor: It allows you to attach additional props (or "attributes") to a component.
+    <Input2 placeholder='A small text input' />
+    <Input2 placeholder='A bigger text input' size='2em' />
+    export const Input2 = styled.input.attrs((props) => ({
+      type: 'text',
+      size: props.size || '1em',
+    }))`
+      /* here we use the dynamically computed prop */
+      margin: ${(props) => props.size};
+      padding: ${(props) => props.size};
+    `;
 
-12. When to use css`` and when no need to use it:
+
+
+A. When to use css`` and when no need to use it:
   ${props =>
     !props.disabled &&
     ` &:hover label{

@@ -9,3 +9,21 @@ export const Input = styled.input`
   border: none;
   border-radius: 3px;
 `;
+
+export const Input2 = styled.input.attrs((props) => ({
+  // we can define static props
+  type: 'text',
+
+  // or we can define dynamic ones
+  // size in input[text] is A number indicating how many characters wide the input field should be
+  size: props.size || '1em',
+}))`
+  color: palevioletred;
+  font-size: 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+
+  /* here we use the dynamically computed prop */
+  margin: ${(props) => props.size};
+  padding: ${(props) => props.size};
+`;

@@ -12,7 +12,7 @@ import {
 } from './components/Button';
 import { Title } from './components/Typography';
 import { Link, StyledLink } from './components/Link';
-import { Input } from './components/Input';
+import { Input, Input2 } from './components/Input';
 import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
 
 const Container = styled.div`
@@ -95,6 +95,11 @@ function App() {
       <Container>
         <GlobalStyle />
         <Thing3>I'm blue, da ba dee da ba daa</Thing3>
+      </Container>
+      <Container>
+        <Input2 placeholder='A small text input' />
+        <br />
+        <Input2 placeholder='A bigger text input' size='2em' />
       </Container>
     </div>
   );
