@@ -137,7 +137,7 @@ https://styled-components.com/docs/api#helpers
 .attrs constructor: It allows you to attach additional props (or "attributes") to a component.
     <Input2 placeholder='A small text input' />
     <Input2 placeholder='A bigger text input' size='2em' />
-    export const Input2 = styled.input.attrs((props) => ({
+    export const Input2 = styled.input.attrs((props) => ({      <<< Prop Factory
       type: 'text',
       size: props.size || '1em',
     }))`
@@ -152,13 +152,32 @@ Overriding .attrs
 Each wrapper to override nested uses of .attrs, similarly to how css properties defined later in a stylesheet override previous declarations.
     <Input2 placeholder='A bigger text input' size='2em' />
     <PasswordInput2 placeholder='A bigger password input' size='2em' />
-    export const PasswordInput2 = styled(Input2).attrs({
+    export const PasswordInput2 = styled(Input2).attrs({        <<< Prop Value
       type: 'password',
     })`
       // similarly, border will override Input's border
       border: 2px solid aqua;
     `;
 
+14.
+Animations: keyframe
+    const rotate = keyframes`
+      from {transform: rotate(0deg);}
+      to {transform: rotate(360deg);}
+    `;
+    export const Rotate = styled.div`
+      animation: ${rotate} 2s linear infinite;
+    `;
+Or you can do it inside:
+    const SpinnerContainer = styled.div`
+      svg {
+        animation: rotation 2s infinite linear;
+      }
+      @keyframes rotation {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(359deg);}
+      }
+    `;
 
 
 A. When to use css`` and when no need to use it:

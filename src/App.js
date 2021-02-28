@@ -14,6 +14,7 @@ import { Title } from './components/Typography';
 import { Link, StyledLink } from './components/Link';
 import { Input, Input2, PasswordInput2 } from './components/Input';
 import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
+import { Rotate } from './components/Rotate';
 
 const Container = styled.div`
   text-align: center;
@@ -106,6 +107,9 @@ function App() {
         <br />
         {/* Notice we can still use the size attr from Input */}
         <PasswordInput2 placeholder='A bigger password input' size='2em' />
+      </Container>
+      <Container>
+        <Rotate>&lt; 💅🏾 &gt;</Rotate>
       </Container>
     </div>
   );
