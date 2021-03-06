@@ -208,6 +208,40 @@ In the render tree all styled-components will have access to the provided theme,
         </ThemeProvider>
       </Container>
 
+17.
+withTheme
+    import { withTheme } from 'styled-components';
+    class MyComponent extends React.Component {
+      render() {
+        console.log('Current theme: ', this.props.theme);
+        // ...
+      }
+    }
+    export default withTheme(MyComponent);
+
+18.
+ThemeContext
+    import { useContext } from 'react';
+    import { ThemeContext } from 'styled-components';
+    const MyComponent = () => {
+      const themeContext = useContext(ThemeContext);
+      console.log('Current theme: ', themeContext);
+      // ...
+    }
+
+19.
+The theme prop
+    render(
+      <div>
+        <Button theme={{ main: "royalblue" }}>Ad hoc theme</Button>
+        <ThemeProvider theme={theme}>
+          <div>
+            <Button>Themed</Button>
+            <Button theme={{ main: "darkorange" }}>Overridden</Button>
+          </div>
+        </ThemeProvider>
+      </div>
+    );
 
 A.
 css: A helper function to generate CSS from a template literal with interpolations

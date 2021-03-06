@@ -8,10 +8,12 @@ import {
   Button4,
   Button5,
   Button6,
+  Button7,
   invertTheme6,
   ReversedButton,
   theme5,
   theme6,
+  theme7,
   TomatoButton2,
   TomatoButton3,
 } from './components/Button';
@@ -132,6 +134,15 @@ function App() {
             <ThemeProvider theme={invertTheme6}>
               <Button6>Inverted Theme</Button6>
             </ThemeProvider>
+          </div>
+        </ThemeProvider>
+      </Container>
+      <Container>
+        <Button7 theme={{ main: 'royalblue' }}>Ad hoc theme</Button7>
+        <ThemeProvider theme={theme7}>
+          <div>
+            <Button7>Themed</Button7>
+            <Button7 theme={{ main: 'darkorange' }}>Overridden</Button7>
           </div>
         </ThemeProvider>
       </Container>
