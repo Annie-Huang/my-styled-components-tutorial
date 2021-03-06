@@ -256,6 +256,21 @@ a React component instance (if targeting a custom component e.g. extended from R
       }}
     />
 
+21.
+Existing CSS.
+make sure your component attaches the passed-in className to a DOM node:
+    class MyComponent extends React.Component {
+      render() {
+        // Attach the passed-in className to the DOM node
+        return <div className={this.props.className} />
+      }
+    }
+    class MyComponent extends React.Component {
+      render() {
+        // Attach the passed-in className to the DOM node
+        return <div className={`some-global-class ${this.props.className}`} />
+      }
+    }
 
 
 
