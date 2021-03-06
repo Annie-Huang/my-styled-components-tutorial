@@ -8,7 +8,7 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ====================================================================
-Up to: https://styled-components.com/docs/basics#attaching-additional-props
+Up to: https://styled-components.com/docs/advanced#theming
 
 
 Learning from version 5:
@@ -168,7 +168,7 @@ Animations: keyframe
     export const Rotate = styled.div`
       animation: ${rotate} 2s linear infinite;
     `;
-Or you can do it inside:
+Or you can do it inside the styled-component:
     const SpinnerContainer = styled.div`
       svg {
         animation: rotation 2s infinite linear;
@@ -179,8 +179,22 @@ Or you can do it inside:
       }
     `;
 
+15.
+Keyframes are lazily injected when they're used, which is how they can be code-splitted, so you have to use the css helper for shared style fragments:
+    const styles2 = css`    <<< Need to add css here.
+      animation: ${rotate} 2s linear infinite;
+    `;
 
-A. When to use css`` and when no need to use it:
+
+A.
+css: A helper function to generate CSS from a template literal with interpolations
+If you're interpolating a string you do not need to use this, only if you're interpolating a function.
+e.g.
+const complexMixin = css`
+  color: ${props => (props.whiteColor ? 'white' : 'black')};
+`
+
+When to use css`` and when no need to use it:
   ${props =>
     !props.disabled &&
     ` &:hover label{
@@ -190,13 +204,13 @@ A. When to use css`` and when no need to use it:
   }`}
   ${props =>
     props.vertical &&
-    css`
+    css`                                <<< I don't think this need to have...
       flex-direction: column;
       line-height: 20px;
     `}
   ${props =>
     !props.hasInlineLabel &&
-    css`                                <<< I am confused.....
+    css`                                <<< I don't think this need to have...
       &:hover:not(:focus) {
         border-radius: ${theme.borders.borderRadiusSmall}px;
       }
