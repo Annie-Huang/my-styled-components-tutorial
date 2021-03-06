@@ -8,7 +8,7 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ====================================================================
-Up to: https://styled-components.com/docs/advanced#theming
+Up to: https://styled-components.com/docs/advanced#existing-css
 
 
 Learning from version 5:
@@ -97,6 +97,7 @@ If you put selectors in without the ampersand (the '&' sign), they will refer to
     `;
 
 10.
+(point 22 is also about specificity)
 The ampersand (the '&' sign) can be used to increase the specificity of rules on the component; this can be useful if you are
 dealing with a mixed styled-components and vanilla CSS environment where there might be conflicting styles:
     <GlobalStyle />
@@ -272,9 +273,35 @@ make sure your component attaches the passed-in className to a DOM node:
       }
     }
 
-
-
-
+22. Issues with specificity
+(point 10 is also about specificity)
+styled-components injects its styles during runtime at the end of the <head> by default.    <<< !!! important concept.
+Thus its styles win over other single classname selectors.
+    // MyComponent.js
+    const MyComponent = styled.div`background-color: green;`;
+    // my-component.css
+    .red-bg {
+      background-color: red;
+    }
+    // For some reason this component still has a green background,
+    // even though you're trying to override it with the "red-bg" class!
+    <MyComponent className="red-bg" />
+    --------------------------
+    So Solution is:
+    /* my-component.css */
+    .red-bg.red-bg {
+      background-color: red;
+    }
+Or you can use plugin like: babel-plugin-styled-components-css-namespace
+which can do:
+    [
+      "@quickbaseoss/babel-plugin-styled-components-css-namespace",
+      {"cssNamespace": "&&&"}               <<< (the default behavior is x2 {"cssNamespace": "&&"}).
+    ],
+    /* output */
+    .c0.c0.c0 {
+      background-color: blue;
+    }
 
 
 
