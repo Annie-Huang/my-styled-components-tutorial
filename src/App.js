@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import {
   Button,
@@ -19,7 +20,7 @@ import {
 } from './components/Button';
 import { Title } from './components/Typography';
 import { Link, StyledLink } from './components/Link';
-import { Input, Input2, PasswordInput2 } from './components/Input';
+import { Input, Input2, Input3, PasswordInput2 } from './components/Input';
 import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
 import { Rotate } from './components/Rotate';
 
@@ -34,6 +35,8 @@ const Wrapper = styled.section`
 `;
 
 function App() {
+  const input3Ref = React.useRef(null);
+
   return (
     <div className='App'>
       <Container>
@@ -145,6 +148,15 @@ function App() {
             <Button7 theme={{ main: 'darkorange' }}>Overridden</Button7>
           </div>
         </ThemeProvider>
+      </Container>
+      <Container>
+        <Input3
+          ref={input3Ref}
+          placeholder='Hover to focus!'
+          onMouseEnter={() => {
+            input3Ref.current.focus();
+          }}
+        />
       </Container>
     </div>
   );

@@ -35,3 +35,12 @@ export const PasswordInput2 = styled(Input2).attrs({
   // similarly, border will override Input's border
   border: 2px solid aqua;
 `;
+
+export const Input3 = styled.input`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: palevioletred;
+  background: papayawhip;
+  border: none;
+  border-radius: 3px;
+`;

@@ -243,6 +243,26 @@ The theme prop
       </div>
     );
 
+20.
+Refs. Passing a ref prop to a styled component will give you
+the underlying DOM node (if targeting a basic element, e.g. styled.div)
+a React component instance (if targeting a custom component e.g. extended from React.Component)
+    const input3Ref = React.useRef(null);
+    <Input3
+      ref={input3Ref}
+      placeholder='Hover to focus!'
+      onMouseEnter={() => {
+        input3Ref.current.focus();
+      }}
+    />
+
+
+
+
+
+
+
+
 A.
 css: A helper function to generate CSS from a template literal with interpolations
 If you're interpolating a string you do not need to use this, only if you're interpolating a function.
