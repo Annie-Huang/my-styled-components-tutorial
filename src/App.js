@@ -7,8 +7,11 @@ import {
   Button3,
   Button4,
   Button5,
+  Button6,
+  invertTheme6,
   ReversedButton,
-  theme,
+  theme5,
+  theme6,
   TomatoButton2,
   TomatoButton3,
 } from './components/Button';
@@ -117,8 +120,19 @@ function App() {
       <Container>
         <Button5>Normal</Button5>
 
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme5}>
           <Button5>Themed</Button5>
+        </ThemeProvider>
+      </Container>
+      <Container>
+        <ThemeProvider theme={theme6}>
+          <div>
+            <Button6>Default Theme</Button6>
+
+            <ThemeProvider theme={invertTheme6}>
+              <Button6>Inverted Theme</Button6>
+            </ThemeProvider>
+          </div>
         </ThemeProvider>
       </Container>
     </div>
