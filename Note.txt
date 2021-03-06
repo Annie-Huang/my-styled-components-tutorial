@@ -185,6 +185,29 @@ Keyframes are lazily injected when they're used, which is how they can be code-s
       animation: ${rotate} 2s linear infinite;
     `;
 
+16.
+Theme. <ThemeProvider> wrapper component
+In the render tree all styled-components will have access to the provided theme, even when they are multiple levels deep.
+    export const Button5 = styled.button`
+      color: ${(props) => props.theme.main};
+      border: 2px solid ${(props) => props.theme.main};
+    `;
+    Button5.defaultProps = {
+      theme: {
+        main: 'palevioletred',
+      },
+    };
+    export const theme = {
+      main: 'mediumseagreen',
+    };
+      <Container>
+        <Button5>Normal</Button5>
+
+        <ThemeProvider theme={theme}>
+          <Button5>Themed</Button5>
+        </ThemeProvider>
+      </Container>
+
 
 A.
 css: A helper function to generate CSS from a template literal with interpolations

@@ -80,3 +80,27 @@ export const Button4 = styled.button`
 export const ReversedButton = (props) => (
   <Button4 {...props} children={props.children.split('').reverse()} />
 );
+
+// Define our button, but with the use of props.theme this time
+export const Button5 = styled.button`
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+
+  /* Color the border and text with theme.main */
+  color: ${(props) => props.theme.main};
+  border: 2px solid ${(props) => props.theme.main};
+`;
+
+// We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
+Button5.defaultProps = {
+  theme: {
+    main: 'palevioletred',
+  },
+};
+
+// Define what props.theme will look like
+export const theme = {
+  main: 'mediumseagreen',
+};

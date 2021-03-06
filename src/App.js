@@ -1,12 +1,14 @@
 import './App.css';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import {
   Button,
   Button1,
   Button2,
   Button3,
   Button4,
+  Button5,
   ReversedButton,
+  theme,
   TomatoButton2,
   TomatoButton3,
 } from './components/Button';
@@ -71,7 +73,8 @@ function App() {
         <StyledLink>Styled, exciting Link</StyledLink>
       </Container>
       <Container>
-        {/*Render a styled text input with the standard input color, and one with a custom input color*/}
+        Render a styled text input with the standard input color, and one with a
+        custom input color
         <Input defaultValue='@probablyup' type='text' />
         <Input defaultValue='@geelen' type='text' inputColor='rebeccapurple' />
       </Container>
@@ -105,11 +108,18 @@ function App() {
       <Container>
         <Input2 placeholder='A bigger text input' size='2em' />
         <br />
-        {/* Notice we can still use the size attr from Input */}
+        Notice we can still use the size attr from Input
         <PasswordInput2 placeholder='A bigger password input' size='2em' />
       </Container>
       <Container>
         <Rotate>&lt; 💅🏾 &gt;</Rotate>
+      </Container>
+      <Container>
+        <Button5>Normal</Button5>
+
+        <ThemeProvider theme={theme}>
+          <Button5>Themed</Button5>
+        </ThemeProvider>
       </Container>
     </div>
   );
