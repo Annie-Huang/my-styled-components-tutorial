@@ -1,0 +1,141 @@
+https://github.com/styled-components/babel-plugin-styled-components/issues/78
+https://github.com/s-panferov/awesome-typescript-loader/issues/94
+
+https://github.com/styled-components/babel-plugin-styled-components/issues/261
+https://github.com/styled-components/babel-plugin-styled-components/issues/243
+https://github.com/styled-components/styled-components/issues/2318
+https://github.com/facebook/create-react-app/issues/3858#issuecomment-578267687
+
+=======================================================================================
+
+Babel Plugin:
+This plugin adds support for server-side rendering, minification of styles, and a nicer debugging experience.
+- npm install --save-dev babel-plugin-styled-components
+- create .babelrc file
+- If you do not use this plugin and try to server-side render styled-components React will complain with an HTML attribute mismatch warning during rehydration.
+
+
+
+{
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": false            <<< Server-side rendering
+      }
+    ]
+  ]
+}
+
+
+or for multiple envirnoment:
+{
+    "env": {
+        "development": {
+            "plugins": [
+                ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ]
+            ],
+            "presets": ["next/babel"]
+        },
+        "production": {
+            "plugins": [
+                ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ]
+            ],
+            "presets": ["next/babel"]
+        }
+    },
+    "plugins": [
+        ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ]
+    ]
+}
+
+-----------------
+
+Try it in OTC:
+C:\Temp\otc-ui-component-library>npm install typescript-plugin-styled-components --save-dev
+In C:\Temp\otc-ui-component-library\webpack.config.js
+
+// 1. import default from the plugin module
+const createStyledComponentsTransformer = require("typescript-plugin-styled-components").default;
+
+// 2. create a transformer;
+// the factory additionally accepts an options object which described below
+// const styledComponentsTransformer = createStyledComponentsTransformer();
+const styledComponentsTransformer = createStyledComponentsTransformer({
+  displayName: true,
+});
+
+
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: {
+          // loader: "ts-loader",
+          loader: "awesome-typescript-loader",
+          options: {
+            getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
+          },
+        },
+      },
+or
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: {
+          // loader: "ts-loader",
+          loader: "awesome-typescript-loader",
+          options: {
+            getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
+          },
+        },
+      },
+
+
+Both above changes can get rid of this warning in consolelog (e.g in stepper page)
+```
+VM6295 vendors~main.e2ac8331b05ba5d53002.bundle.js:295634 The component styled.div with the id of "sc-pZQux" has been created dynamically.
+You may see this warning because you've called styled inside another component.
+To resolve this only create new StyledComponents outside of any render method and function component.
+```
+
+But awesome-typescript-loader seems to load faster than ts-loader
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

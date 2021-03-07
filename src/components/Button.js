@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+// import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 
 export const Button = styled.button`
   background: transparent;

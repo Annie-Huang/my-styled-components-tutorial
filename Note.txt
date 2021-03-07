@@ -17,6 +17,10 @@ Learning from version 5:
 C:\react>npx create-react-app my-styled-components-tutorial
 C:\react\my-styled-components-tutorial>npm install --save styled-components
 
+C:\react\my-styled-components-tutorial>npm install --save-dev babel-plugin-styled-components
+(Read notes in C:\react\my-styled-components-tutorial\NoteBabelWebpack.txt)
+
+
 =======================================================================================
 
 
