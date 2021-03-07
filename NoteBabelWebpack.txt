@@ -111,9 +111,13 @@ To resolve this only create new StyledComponents outside of any render method an
 
 But awesome-typescript-loader seems to load faster than ts-loader
 
+=======================================================================================
 
+OMG, you just need to change:
+// import styled from "styled-components";
+import styled from "styled-components/macro";
 
-
+You don't need to do any babelrc config to add the display name into the classname.
 
 
 
