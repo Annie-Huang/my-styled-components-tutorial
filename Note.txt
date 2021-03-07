@@ -1,20 +1,24 @@
 https://styled-components.com/
 https://stylis.js.org/
 https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21
+https://mxstbr.blog/2016/11/styled-components-magic-explained/
 
 Need to read:
 https://github.com/styled-components/jest-styled-components         <<< Need to rea this to see if you can do testing.
 https://styled-components.com/docs/api#helpers                      <<< About create GlobalStyle
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
-====================================================================
-Up to: https://styled-components.com/docs/advanced#existing-css
+######################################################################################
+Up to: https://styled-components.com/docs/advanced#server-side-rendering
 
 
 Learning from version 5:
 
 C:\react>npx create-react-app my-styled-components-tutorial
 C:\react\my-styled-components-tutorial>npm install --save styled-components
+
+=======================================================================================
+
 
 1.
 Adapting based on props:
@@ -302,6 +306,28 @@ which can do:
     .c0.c0.c0 {
       background-color: blue;
     }
+
+23. Tagged Template Literals
+    const Title = styled.h1`
+      /* Text centering won't break if props.upsidedown is falsy */
+      ${props.upsidedown && 'transform: rotate(180deg);'}       <<< If there is not variable, you can just use ''
+      text-align: center;
+    `;
+    ${props =>
+    props.step.subStepOf &&
+    `                               <<< have to use `` because we evaluation another ${} again inside.
+      &.inProgress {
+        span {
+          color: ${theme.colors.blueInfoDark};
+        }
+      }
+    `}
+
+
+
+
+
+
 
 
 
