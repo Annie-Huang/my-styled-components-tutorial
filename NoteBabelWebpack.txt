@@ -5,6 +5,7 @@ https://github.com/styled-components/babel-plugin-styled-components/issues/261
 https://github.com/styled-components/babel-plugin-styled-components/issues/243
 https://github.com/styled-components/styled-components/issues/2318
 https://github.com/facebook/create-react-app/issues/3858#issuecomment-578267687
+https://styled-components.com/docs/tooling#babel-macro
 
 =======================================================================================
 
@@ -49,11 +50,17 @@ or for multiple envirnoment:
     ]
 }
 
------------------
+=======================================================================================
 
 Try it in OTC:
 C:\Temp\otc-ui-component-library>npm install typescript-plugin-styled-components --save-dev
 In C:\Temp\otc-ui-component-library\webpack.config.js
+
+
+/*
+https://styled-components.com/docs/tooling#babel-macro
+https://styled-components.com/docs/tooling#typescript-plugin
+*/
 
 // 1. import default from the plugin module
 const createStyledComponentsTransformer = require("typescript-plugin-styled-components").default;
@@ -73,6 +80,7 @@ const styledComponentsTransformer = createStyledComponentsTransformer({
         use: {
           // loader: "ts-loader",
           loader: "awesome-typescript-loader",
+          // loader: "babel-loader",
           options: {
             getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
           },
@@ -84,8 +92,9 @@ or
       {
         test: /\.tsx?$/,
         use: {
-          // loader: "ts-loader",
-          loader: "awesome-typescript-loader",
+          loader: "ts-loader",
+          // loader: "awesome-typescript-loader",
+          // loader: "babel-loader",
           options: {
             getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
           },

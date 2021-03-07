@@ -127,7 +127,7 @@ dealing with a mixed styled-components and vanilla CSS environment where there m
 11.
 createGlobalStyle: things like CSS resets or base stylesheets can be applied.
 https://styled-components.com/docs/api#helpers
-    import { createGlobalStyle, ThemeProvider } from 'styled-components'
+    import { createGlobalStyle, ThemeProvider } from 'styled-components/macro'
     const GlobalStyle = createGlobalStyle`
       body {
         color: ${props => (props.whiteColor ? 'white' : 'black')};
@@ -219,7 +219,7 @@ In the render tree all styled-components will have access to the provided theme,
 
 17.
 withTheme
-    import { withTheme } from 'styled-components';
+    import { withTheme } from 'styled-components/macro';
     class MyComponent extends React.Component {
       render() {
         console.log('Current theme: ', this.props.theme);
@@ -231,7 +231,7 @@ withTheme
 18.
 ThemeContext
     import { useContext } from 'react';
-    import { ThemeContext } from 'styled-components';
+    import { ThemeContext } from 'styled-components/macro';
     const MyComponent = () => {
       const themeContext = useContext(ThemeContext);
       console.log('Current theme: ', themeContext);

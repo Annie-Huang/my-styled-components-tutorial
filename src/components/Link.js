@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 /*
  * The styled method works perfectly on all of your own or any third-party component,

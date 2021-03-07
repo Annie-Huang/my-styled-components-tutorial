@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-// import styled, { ThemeProvider } from 'styled-components';
 import styled, { ThemeProvider } from 'styled-components/macro';
 import {
   Button,

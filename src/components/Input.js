@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 // Create an Input component that'll render an <input> tag with some styles
 export const Input = styled.input`
