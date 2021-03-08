@@ -46,6 +46,17 @@ Extending Styles | Inherit Style.
         <TomatoButton2>Tomato Button</TomatoButton2>
       </Container>
 
+2.1
+Referring the variable defined outside the styled-component:
+    const padding = '3em'
+    const Section = styled.section`
+      ...
+      padding: ${padding};
+    `
+    <Section background="cornflowerblue">
+      ✨ Magic
+    </Section>
+
 3.
 "as" polymorphic prop (introduced in v4): Will change the element name
     <Button3 as='a' href='/'>Link with Button styles</Button3>
