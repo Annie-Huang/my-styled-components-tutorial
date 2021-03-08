@@ -9,7 +9,7 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
-Up to: https://styled-components.com/docs/advanced#referring-to-other-components
+Up to: https://styled-components.com/docs/api#taggedtemplateliteral
 
 
 Learning from version 5:
@@ -27,10 +27,24 @@ C:\react\my-styled-components-tutorial>npm install --save-dev babel-plugin-style
 1.
 Adapting based on props:
     background: ${(props) => (props.primary ? 'palevioletred' : 'white')};
+    ${props => props.step.subStepOf && `
+      background: ${theme.colors.white};
+    `}
 
 2.
-Extending Styles
-    export const TomatoButton = styled(Button2)`...`
+Extending Styles | Inherit Style.
+    export const Button2 = styled.button`
+      color: palevioletred;
+      ...
+    `;
+    export const TomatoButton2 = styled(Button2)`
+      color: tomato;
+      border-color: tomato;
+    `;
+      <Container>
+        <Button2>Normal Button</Button2>
+        <TomatoButton2>Tomato Button</TomatoButton2>
+      </Container>
 
 3.
 "as" polymorphic prop (introduced in v4): Will change the element name
