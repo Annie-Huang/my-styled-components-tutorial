@@ -11,7 +11,7 @@ https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
 Up to:
 https://styled-components.com/docs/api#helpers: In:
-https://styled-components.com/docs/api#stylesheetmanager
+https://styled-components.com/docs/api#themeconsumer
 
 
 Learning from version 5:
@@ -303,8 +303,24 @@ In the render tree all styled-components will have access to the provided theme,
         </ThemeProvider>
       </Container>
 
+16.1
+ThemeConsumer.
+It passes the current theme (based on a ThemeProvider higher in your component tree) as an argument to the child function.
+From this function, you may return further JSX or nothing.
+    import { ThemeConsumer } from 'styled-components'
+    export default class MyComponent extends React.Component {
+      render() {
+        return (
+          <ThemeConsumer>
+            {theme => <div>The theme color is {theme.color}.</div>}
+          </ThemeConsumer>
+        )
+      }
+    }
+
 17.
 withTheme
+All styled components automatically receive the theme as a prop, so this is only necessary if you wish to access the theme for other reasons.
     import { withTheme } from 'styled-components/macro';
     class MyComponent extends React.Component {
       render() {
