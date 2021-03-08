@@ -9,7 +9,9 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
-Up to: https://styled-components.com/docs/api#taggedtemplateliteral
+Up to:
+https://styled-components.com/docs/api#primary: In:
+https://styled-components.com/docs/api#taggedtemplateliteral
 
 
 Learning from version 5:
@@ -41,12 +43,12 @@ Extending Styles | Inherit Style.
       color: tomato;
       border-color: tomato;
     `;
-      <Container>
-        <Button2>Normal Button</Button2>
-        <TomatoButton2>Tomato Button</TomatoButton2>
-      </Container>
+    <Container>
+      <Button2>Normal Button</Button2>
+      <TomatoButton2>Tomato Button</TomatoButton2>
+    </Container>
 
-2.1
+2.1.
 Referring the variable defined outside the styled-component:
     const padding = '3em'
     const Section = styled.section`
@@ -57,11 +59,35 @@ Referring the variable defined outside the styled-component:
       ✨ Magic
     </Section>
 
+2.2.
+Transient props v5.1
+If you want to prevent props meant to be consumed by styled components from being passed to the underlying React node
+or rendered to the DOM element, you can prefix the prop name with a dollar sign ($), turning it into a transient prop.
+    export const Comp = styled.div`
+      color: ${(props) => props.$draggable || 'black'};
+    `;
+    <Comp $draggable='red' draggable='true'>
+      Drag me!
+    </Comp>
+It is only working because draggable is a html keyword:
+    <Comp $draggable='red' tabIndex={0} draggable='true'>Drag me!</Comp>        <<< Show tabIndex
+    <Comp $draggable='red' $tabIndex={0} draggable='true'>Drag me!</Comp>       <<< Not showing tabIndex
+    <Comp $draggable='red' annie='red' draggable='true'>Drag me!</Comp>         <<< Not showing annie because annie is not a html keyword.
+
+
 3.
 "as" polymorphic prop (introduced in v4): Will change the element name
     <Button3 as='a' href='/'>Link with Button styles</Button3>
     change to:
     <a href="/" class="sc-eCssSg bpkTHM">Link with Button styles</a>
+    -----------------
+    const Component = styled.div`
+      color: red;
+    `;
+    <Component as="button" onClick={() => alert('It works!')}>Hello World!</Component>
+This sort of thing is very useful in use cases like a navigation bar where some of the items should be links
+and some just buttons, but all be styled the same way.
+
 
 4.
 "as" polymorphic prop works with custom components too!
@@ -168,7 +194,8 @@ https://styled-components.com/docs/api#helpers
     </ThemeProvider>
 
 12.
-.attrs constructor: It allows you to attach additional props (or "attributes") to a component.
+Attaching additional props through the .attrs constructor:
+It allows you to attach additional props (or "attributes") to a component.
     <Input2 placeholder='A small text input' />
     <Input2 placeholder='A bigger text input' size='2em' />
     export const Input2 = styled.input.attrs((props) => ({      <<< Prop Factory
@@ -177,7 +204,7 @@ https://styled-components.com/docs/api#helpers
     }))`
       border: 2px solid palevioletred;
       /* here we use the dynamically computed prop */
-      margin: ${(props) => props.size};
+      margin: ${(props) => props.size};                         <<< Prop Value
       padding: ${(props) => props.size};
     `;
 

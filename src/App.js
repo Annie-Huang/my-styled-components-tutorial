@@ -23,6 +23,7 @@ import { Icon2, Label2, Link, Link2, StyledLink } from './components/Link';
 import { Input, Input2, Input3, PasswordInput2 } from './components/Input';
 import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
 import { Rotate } from './components/Rotate';
+import { Comp } from './components/Comp';
 
 const Container = styled.div`
   text-align: center;
@@ -165,6 +166,11 @@ function App() {
           </Icon2>
           <Label2>Hovering my parent changes my style!</Label2>
         </Link2>
+      </Container>
+      <Container>
+        <Comp $draggable='red' $tabIndex={0} draggable='true'>
+          Drag me!
+        </Comp>
       </Container>
     </div>
   );
