@@ -1,15 +1,20 @@
+https://github.com/Igorbek/typescript-plugin-styled-components
+https://github.com/styled-components/babel-plugin-styled-components
+https://github.com/s-panferov/awesome-typescript-loader
+
+
 https://github.com/styled-components/babel-plugin-styled-components/issues/78
 https://github.com/s-panferov/awesome-typescript-loader/issues/94
 
 https://github.com/styled-components/babel-plugin-styled-components/issues/261
 https://github.com/styled-components/babel-plugin-styled-components/issues/243
-https://github.com/styled-components/styled-components/issues/2318
+https://github.com/styled-components/styled-components/issues/2318      <<< !!!! Finally get the answer from here...
 https://github.com/facebook/create-react-app/issues/3858#issuecomment-578267687
 https://styled-components.com/docs/tooling#babel-macro
 
 =======================================================================================
 
-Babel Plugin:
+Babel Plugin to show displayName in className in this project:
 This plugin adds support for server-side rendering, minification of styles, and a nicer debugging experience.
 - npm install --save-dev babel-plugin-styled-components
 - create .babelrc file
@@ -52,8 +57,12 @@ or for multiple envirnoment:
 
 =======================================================================================
 
-Try it in OTC:
+Webpack setting to show displayName in className in in OTC:
+-------------
 C:\Temp\otc-ui-component-library>npm install typescript-plugin-styled-components --save-dev
+C:\Temp\otc-ui-component-library>npm install awesome-typescript-loader --save-dev
+C:\Temp\otc-ui-component-library>npm install babel-loader --save-dev
+
 In C:\Temp\otc-ui-component-library\webpack.config.js
 
 
