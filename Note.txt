@@ -10,8 +10,8 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
 Up to:
-https://styled-components.com/docs/api#primary: In:
-https://styled-components.com/docs/api#css-prop
+https://styled-components.com/docs/api#helpers: In:
+https://styled-components.com/docs/api#createglobalstyle
 
 
 Learning from version 5:
@@ -192,12 +192,12 @@ dealing with a mixed styled-components and vanilla CSS environment where there m
 
 11.
 createGlobalStyle: things like CSS resets or base stylesheets can be applied.
-https://styled-components.com/docs/api#helpers
+https://styled-components.com/docs/api#createglobalstyle
     import { createGlobalStyle, ThemeProvider } from 'styled-components/macro'
     const GlobalStyle = createGlobalStyle`
       body {
         color: ${props => (props.whiteColor ? 'white' : 'black')};
-        font-family: ${props => props.theme.fontFamily};
+        font-family: ${props => props.theme.fontFamily};    <<< It also has access to theming from the <ThemeProvider> component if provided.
       }
     `
     // later in your app
