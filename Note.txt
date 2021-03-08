@@ -367,6 +367,32 @@ Other example like for datagrid:
       border-bottom-left-radius: 0;
     }
 
+Important: It can only referring to styled-component component, not react component:
+Incorrect:
+    class A extends React.Component {
+      render() {
+        return <div />
+      }
+    }
+    const B = styled.div`
+      ${A} {
+      }
+    `
+Correct:
+    class A extends React.Component {
+      render() {
+        return <div className={this.props.className} />
+      }
+    }
+    const StyledA = styled(A)``
+    const B = styled.div`
+      ${StyledA} {
+      }
+    `
+
+
+
+
 
 
 
