@@ -11,7 +11,7 @@ https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
 Up to:
 https://styled-components.com/docs/api#helpers: In:
-https://styled-components.com/docs/api#keyframes
+https://styled-components.com/docs/api#stylesheetmanager
 
 
 Learning from version 5:
@@ -476,8 +476,15 @@ Correct:
       }
     `
 
-
-
+25.
+isStyledComponent.
+Returns true if the passed function is a valid styled components-wrapped component class.
+It can be useful for determining if a component needs to be wrapped such that it can be used as a component selector
+    import styled, { isStyledComponent } from 'styled-components'
+    import MaybeStyledComponent from './somewhere-else'
+    let TargetedComponent = isStyledComponent(MaybeStyledComponent)
+      ? MaybeStyledComponent
+      : styled(MaybeStyledComponent)``
 
 
 
