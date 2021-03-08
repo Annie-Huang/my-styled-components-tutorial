@@ -1,6 +1,8 @@
 https://github.com/Igorbek/typescript-plugin-styled-components
 https://github.com/styled-components/babel-plugin-styled-components
 https://github.com/s-panferov/awesome-typescript-loader
+https://github.com/kentcdodds/babel-plugin-macros
+https://www.youtube.com/watch?v=1queadQ0048&list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u
 
 
 https://github.com/styled-components/babel-plugin-styled-components/issues/78

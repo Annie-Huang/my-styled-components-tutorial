@@ -11,7 +11,7 @@ https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
 Up to:
 https://styled-components.com/docs/api#primary: In:
-https://styled-components.com/docs/api#taggedtemplateliteral
+https://styled-components.com/docs/api#css-prop
 
 
 Learning from version 5:
@@ -73,6 +73,21 @@ It is only working because draggable is a html keyword:
     <Comp $draggable='red' tabIndex={0} draggable='true'>Drag me!</Comp>        <<< Show tabIndex
     <Comp $draggable='red' $tabIndex={0} draggable='true'>Drag me!</Comp>       <<< Not showing tabIndex
     <Comp $draggable='red' annie='red' draggable='true'>Drag me!</Comp>         <<< Not showing annie because annie is not a html keyword.
+
+2.4.
+css prop v4
+You have to use the Babel plugin to enable css prop to work, unless you use 'styled-components/macro', which will auto add Babel plugin.
+(Tested and verified this)
+    import styled from 'styled-components/macro'                <<< Remember to add this if your file hasn't imported it already.
+    <Button7 css='background-color: yellow'>Themed</Button7>
+
+It said Under the hood, the Babel plugin turns any element with a css prop into a styled component.
+    const StyledButton = styled(Button7)`
+      background-color: yellow;
+    `
+    <StyledButton />
+To prevent TypeScript errors on the css prop on arbitrary elements, install @types/styled-components and add the following import once in your project:
+import {} from 'styled-components/cssprop'
 
 
 3.

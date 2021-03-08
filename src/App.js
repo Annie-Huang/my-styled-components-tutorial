@@ -172,6 +172,22 @@ function App() {
           Drag me!
         </Comp>
       </Container>
+      <Container>
+        <Button7 css='background-color: yellow'>
+          Single Styled through css
+        </Button7>
+        <Button7
+          css={`
+            background-color: yellow;
+            color: ${(props) => props.theme?.colors?.text || 'red'};
+          `}
+        >
+          Multiple Styled through css
+        </Button7>
+        <Button7 style={{ 'background-color': 'yellow' }}>
+          Styled through inline
+        </Button7>
+      </Container>
     </div>
   );
 }
