@@ -19,7 +19,7 @@ import {
   TomatoButton3,
 } from './components/Button';
 import { Title } from './components/Typography';
-import { Link, StyledLink } from './components/Link';
+import { Icon2, Label2, Link, Link2, StyledLink } from './components/Link';
 import { Input, Input2, Input3, PasswordInput2 } from './components/Input';
 import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
 import { Rotate } from './components/Rotate';
@@ -157,6 +157,14 @@ function App() {
             input3Ref.current.focus();
           }}
         />
+      </Container>
+      <Container>
+        <Link2 href='#'>
+          <Icon2 viewBox='0 0 20 20'>
+            <path d='M10 15h8c1 0 2-1 2-2V3c0-1-1-2-2-2H2C1 1 0 2 0 3v10c0 1 1 2 2 2h4v4l4-4zM5 7h2v2H5V7zm4 0h2v2H9V7zm4 0h2v2h-2V7z' />
+          </Icon2>
+          <Label2>Hovering my parent changes my style!</Label2>
+        </Link2>
       </Container>
     </div>
   );

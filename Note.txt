@@ -9,7 +9,7 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
-Up to: https://styled-components.com/docs/advanced#server-side-rendering
+Up to: https://styled-components.com/docs/advanced#referring-to-other-components
 
 
 Learning from version 5:
@@ -281,7 +281,8 @@ make sure your component attaches the passed-in className to a DOM node:
       }
     }
 
-22. Issues with specificity
+22.
+Issues with specificity
 (point 10 is also about specificity)
 styled-components injects its styles during runtime at the end of the <head> by default.    <<< !!! important concept.
 Thus its styles win over other single classname selectors.
@@ -311,7 +312,8 @@ which can do:
       background-color: blue;
     }
 
-23. Tagged Template Literals
+23.
+Tagged Template Literals
     const Title = styled.h1`
       /* Text centering won't break if props.upsidedown is falsy */
       ${props.upsidedown && 'transform: rotate(180deg);'}       <<< If there is not variable, you can just use ''
@@ -328,9 +330,42 @@ which can do:
     `}
 
 
+24.
+Referring to other components (Referring to other already used style-component component)
+Whenever a component is created or wrapped by the styled() factory function, it is also assigned a stable CSS class for use in targeting.
+This allows for extremely powerful composition patterns without having to fuss around with naming and avoiding selector collisions.
+    export const Link2 = styled.a`
+      ...
+    `;
+    export const Icon2 = styled.svg`
+      ...
+      ${Link2}:hover & {        <<< & means whenever hover on <a> element (Link2), apply the style in <svg> element (Icons2)
+        fill: rebeccapurple;
+      }
+    `;
+    <Link2 href='#'>
+      <Icon2 viewBox='0 0 20 20'>
+        <path d='M10 15h8c1 0 2-1 2-2V3c0-1-1-2-2-2H2C1 1 0 2 0 3v10c0 1 1 2 2 2h4v4l4-4zM5 7h2v2H5V7zm4 0h2v2H9V7zm4 0h2v2h-2V7z' />
+      </Icon2>
+      <Label2>Hovering my parent changes my style!</Label2>
+    </Link2>
 
-
-
+Other example like for datagrid:
+    ${Cell}, ${FirstCell} {
+      --list-row-bg-color: var(--list-row-bg-disabled-color);
+    }
+    -------------
+    &:hover,
+    &:focus-within {
+      ${FirstCell} , td:not(:first-child) {
+        --list-row-bg-color: var(--list-row-bg-focus-color);
+      }
+    }
+    -------------
+    &:focus-within ${FirstCell} {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
 
 
 

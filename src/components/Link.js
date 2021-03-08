@@ -13,3 +13,34 @@ export const StyledLink = styled(Link)`
   color: palevioletred;
   font-weight: bold;
 `;
+
+// Referring to other components example:
+export const Link2 = styled.a`
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background: papayawhip;
+  color: palevioletred;
+`;
+
+export const Icon2 = styled.svg`
+  flex: none;
+  transition: fill 0.25s;
+  width: 48px;
+  height: 48px;
+
+  ${Link2}:hover & {
+    fill: rebeccapurple;
+  }
+`;
+
+export const Label2 = styled.span`
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+
+  &::before {
+    content: '◀';
+    margin: 0 10px;
+  }
+`;
