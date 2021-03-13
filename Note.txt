@@ -10,8 +10,7 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
 Up to:
-https://styled-components.com/docs/api#test-utilities: In:
-https://styled-components.com/docs/api#find
+https://styled-components.com/docs/api#typescript
 
 
 Learning from version 5:
@@ -579,6 +578,21 @@ If you are passing custom properties to your styled component it's a good idea t
     -------------
     export const StepItem = styled.li<{ step: Step; hideSubStep: boolean; hasSubStep: boolean; isLastSubStep: boolean }>`...`
 
-
-
-
+29.
+TypeScript. className needs to pass in if you component want to use the classname:
+    interface LogoProps {
+      /* This prop is optional, since TypeScript won't know that it's passed by the wrapper */
+      className?: string;
+    }
+    class Logo extends React.Component<LogoProps, {}> {
+      render() {
+        return <div className={this.props.className}>Logo</div>;
+      }
+    }
+    ------------------
+    interface BoxProps {
+      theme?: ThemeInterface;
+      borders?: boolean;
+      className?: string;
+    }
+    const Box: React.FunctionComponent<BoxProps> = (props) => <div className={props.className}>{props.children}</div>;
