@@ -563,6 +563,21 @@ Test Utilities - enzymeFind
     )
     enzymeFind(wrapper, Foo)
 
+28.
+TypeScript. Using custom props.
+If you are passing custom properties to your styled component it's a good idea to pass type arguments to tagged template like this (TypeScript v2.9+ is required):
+    interface TitleProps {
+      readonly isActive: boolean;
+    };
+    const Title = styled.h1<TitleProps>`
+      color: ${props => props.isActive ? props.theme.colors.main : props.theme.colors.secondary};
+    `
+    -------------
+    const NewHeader = styled(Header)<{ customColor: string }>`
+      color: ${props => props.customColor};
+    `
+    -------------
+    export const StepItem = styled.li<{ step: Step; hideSubStep: boolean; hasSubStep: boolean; isLastSubStep: boolean }>`...`
 
 
 
