@@ -1,0 +1,15 @@
+[1] src\components\atoms\checkbox.stories.tsx
+[1]   Line 34:36:  React Hook "React.useState" is called in function "remoteChecking" that is neither a React function component nor a custom React Hook function. React compo
+nent names must start with an uppercase letter  react-hooks/rules-of-hooks
+[1]
+[1] src\components\icons\icon.stories.tsx
+[1]   Line 40:34:  React Hook "React.useState" is called in function "filled" that is neither a React function component nor a custom React Hook function. React component nam
+es must start with an uppercase letter    react-hooks/rules-of-hooks
+[1]   Line 65:34:  React Hook "React.useState" is called in function "outlined" that is neither a React function component nor a custom React Hook function. React component n
+ames must start with an uppercase letter  react-hooks/rules-of-hooks
+[1]
+[1] src\components\molecules\currency.stories.tsx
+[1]   Line 96:20:  React Hook "React.useRef" is called in function "autoFocus" that is neither a React function component nor a custom React Hook function. React component na
+mes must start with an uppercase letter     react-hooks/rules-of-hooks
+[1]   Line 98:3:   React Hook "React.useEffect" is called in function "autoFocus" that is neither a React function component nor a custom React Hook function. React component
+ names must start with an uppercase letter  react-hooks/rules-of-hooks

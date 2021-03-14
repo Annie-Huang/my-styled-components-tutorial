@@ -3,7 +3,8 @@ https://github.com/styled-components/babel-plugin-styled-components
 https://github.com/s-panferov/awesome-typescript-loader
 https://github.com/kentcdodds/babel-plugin-macros
 https://www.youtube.com/watch?v=1queadQ0048&list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u
-
+https://iamturns.com/typescript-babel/
+https://dev.to/stanleysathler/enabling-styled-components-debugging-options-in-your-cra-app-without-ejecting-16c1
 
 https://github.com/styled-components/babel-plugin-styled-components/issues/78
 https://github.com/s-panferov/awesome-typescript-loader/issues/94
@@ -13,6 +14,7 @@ https://github.com/styled-components/babel-plugin-styled-components/issues/243
 https://github.com/styled-components/styled-components/issues/2318      <<< !!!! Finally get the answer from here...
 https://github.com/facebook/create-react-app/issues/3858#issuecomment-578267687
 https://styled-components.com/docs/tooling#babel-macro
+https://github.com/styled-components/jest-styled-components#global-installation
 
 =======================================================================================
 
@@ -132,9 +134,24 @@ You don't need to do any babelrc config to add the display name into the classna
 
 
 
+=======================================================================================
+create react app, typescript, styled-component, cannot show component displayName
+https://dev.to/stanleysathler/enabling-styled-components-debugging-options-in-your-cra-app-without-ejecting-16c1
 
+C:\Temp\otc-ui-component-library>npm install react-app-rewired --save-dev
 
+You create a file named config-override.js (at the root path) that acts similarly to the webpack config file.
+const { override, addBabelPlugin } = require('customize-cra')
+module.exports = override(
+  addBabelPlugin(
+    ['babel-plugin-styled-components', {
+      displayName: true,
+      // any extra config from babel-plugin-styled-components
+    }]
+  )
+)
 
+C:\Temp\otc-ui-component-library>npm install customize-cra --save-dev
 
 
 
