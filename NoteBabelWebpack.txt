@@ -16,6 +16,8 @@ https://github.com/facebook/create-react-app/issues/3858#issuecomment-578267687
 https://styled-components.com/docs/tooling#babel-macro
 https://github.com/styled-components/jest-styled-components#global-installation
 
+https://stackoverflow.com/questions/59961697/random-classes-getting-displayed-when-we-use-styled-components
+
 =======================================================================================
 
 Babel Plugin to show displayName in className in this project:

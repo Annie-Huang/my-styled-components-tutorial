@@ -1,0 +1,36 @@
+https://github.com/microsoft/TypeScript/issues/41882
+
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["jest"],
+    "moduleResolution": "node",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "outDir": "./lib",
+    "target": "es5",
+    "module": "esnext",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "jsx": "react",             <<< This is not follow standard.     "jsx": "react-jsx", which is remove all the unused React from import
+    "baseUrl": "./src",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": false             <<< This is not follow standard.
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*", ".storybook", ".storybook-build", "lib", "**/*.test.ts"],
+  "files": [
+    ".storybook/typings.d.ts"
+  ]
+}
