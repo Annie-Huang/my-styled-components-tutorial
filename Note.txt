@@ -704,3 +704,24 @@ By declaring a styled component inside the render method of a react component, y
         </div>
       )
     }
+
+35.
+HTML attribute warnings.
+e.g. Warning: Received "true" for a non-boolean attribute
+    const Link = props => (
+      <a {...props} className={props.className}>                <<< Incorrect. Translate to
+        {props.text}                                                <a text="Click" href="https://www.styled-components.com/" red="true" class="[generated class]">Click</a>
+      </a>                                                          It got error because <a> in html doesn't have `text` and `red` attribute.
+    )
+    const Link = ({ className, red, text, ...props }) => (      <<< Correct. Translate to:
+      <a {...props} className={className}>                          <a href="https://www.styled-components.com/" class="[generated class]">Click</a>
+        {text}
+      </a>
+    ),
+
+    const StyledComp = styled(Link)`
+      color: ${props => (props.red ? 'red' : 'blue')};
+    `
+    <StyledComp text="Click" href="https://www.styled-components.com/" red />
+
+
