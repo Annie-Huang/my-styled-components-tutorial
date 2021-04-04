@@ -234,25 +234,6 @@ Each wrapper to override nested uses of .attrs, similarly to how css properties 
       border: 2px solid aqua;
     `;
 
-13.1
-Use CSS frameworks with styled-component. Attach className | overriding className.
-You can add it using the createGlobalStyle API. This is also useful for things like CSS resets.
-    export const Button10 = styled.button.attrs(props => ({         <<< Button.js
-      className: "small",
-    }))`
-      ...
-    `;
-    .small {                    <<< App.css
-      color: white;
-      font-size: 0.5em;
-    }
-    .big {
-      color: white;
-      font-size: 1.4em;
-    }
-    <Button10>Styled Components</Button10>      <<< App.js
-    <Button10 className='big'>The new way to style components!</Button10>
-
 
 14.
 Animations: keyframe
@@ -653,3 +634,32 @@ Including media query nesting (media query nesting only available in scss, not u
         color: papayawhip;
       }
     `;
+
+31.
+Use CSS frameworks with styled-component. Attach className | overriding className.
+You can add it using the createGlobalStyle API. This is also useful for things like CSS resets.
+    export const Button10 = styled.button.attrs(props => ({         <<< Button.js
+      className: "small",
+    }))`
+      ...
+    `;
+    .small {                    <<< App.css
+      color: white;
+      font-size: 0.5em;
+    }
+    .big {
+      color: white;
+      font-size: 1.4em;
+    }
+    <Button10>Styled Components</Button10>      <<< App.js
+    <Button10 className='big'>The new way to style components!</Button10>
+
+
+32.
+Override inline styles. Can only be done through !important:
+    const MyStyledComponent = styled(InlineStyledComponent)`
+      &[style] {
+        font-size: 12px !important;
+        color: blue !important;
+      }
+    `
