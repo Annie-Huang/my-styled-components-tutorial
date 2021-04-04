@@ -1,4 +1,5 @@
 https://styled-components.com/docs/tooling#styled-theming
+https://jamie.build/styled-theming.html
 
 -----------------------------------------------------------------
 
@@ -6,6 +7,13 @@ C:\react\my-styled-components-tutorial>npm install --save styled-theming
 
 <ThemeProvider theme={{ mode: "dark", size: "large" }}>
 <ThemeProvider theme={{ mode: modes => modes.dark, size: sizes => sizes.large }}>
+
+theme("mode", { light: ..., dark: ... });
+theme("size", { normal: ..., compact: ... });
+
+<ThemeProvider theme={{ mode: 'dark', size: 'compact' }}>
+
+-------------------
 
 
 <ThemeProvider theme={{ mode: 'light' }}>

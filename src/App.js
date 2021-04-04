@@ -26,6 +26,7 @@ import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
 import { Rotate } from './components/Rotate';
 import { Comp } from './components/Comp';
 import { Box } from './components/Box';
+import { Child, EqualDivider } from './components/EqualDivider';
 
 const Container = styled.div`
   text-align: center;
@@ -209,6 +210,18 @@ function App() {
           <Button9 variant='success'>Success</Button9>
           <Button9 variant='warning'>Warning</Button9>
         </ThemeProvider>
+      </Container>
+      <Container>
+        <EqualDivider>
+          <Child>First</Child>
+          <Child>Second</Child>
+          <Child>Third</Child>
+        </EqualDivider>
+        <EqualDivider vertical>
+          <Child>First</Child>
+          <Child>Second</Child>
+          <Child>Third</Child>
+        </EqualDivider>
       </Container>
     </div>
   );

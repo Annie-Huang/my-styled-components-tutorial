@@ -10,7 +10,7 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
 Up to:
-https://styled-components.com/docs/tooling#typescript-plugin
+https://styled-components.com/docs/faqs
 
 
 Learning from version 5:
@@ -597,3 +597,26 @@ To use function components and have typechecking for the props you'll need to de
       className?: string;
     }
     const Box: React.FunctionComponent<BoxProps> = (props) => <div className={props.className}>{props.children}</div>;
+
+30.
+Can do nesting. Nesting is a feature intentionally ported from Sass.
+Including media query nesting (media query nesting only available in scss, not usually available in css)
+    const EqualDivider = styled.div`
+      display: flex;
+      ${props => props.vertical && "flex-direction: column;"}
+      > * {
+        flex: 1;
+        &:not(:first-child) {
+          ${props => props.vertical ? "margin-top" : "margin-left"}: 1rem;
+        }
+      }
+    `;
+    ----------
+    const ColorChanger = styled.section`
+      background: papayawhip;
+      color: palevioletred;
+      @media(min-width: 768px) {
+        background: mediumseagreen;
+        color: papayawhip;
+      }
+    `;
