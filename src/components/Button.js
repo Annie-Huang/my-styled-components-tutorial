@@ -143,3 +143,12 @@ export const Button7 = styled.button`
 export const theme7 = {
   main: 'mediumseagreen',
 };
+
+export const Button8 = styled.button`
+  color: red;
+  @media (max-width: 640px) {
+    &:hover {
+      color: green;
+    }
+  }
+`;

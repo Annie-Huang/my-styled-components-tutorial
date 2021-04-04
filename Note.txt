@@ -4,11 +4,6 @@ https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6b
 https://mxstbr.blog/2016/11/styled-components-magic-explained/
 https://github.com/styled-components/styled-components-website/tree/master/test
 
-https://styled-components.com/docs/tooling#jest-integration
-https://github.com/styled-components/jest-styled-components
-    <<< This is nice to have jest-style-components, which will log styling info in the snapshot file as well.
-        But the whole snapshot file seems fake to me anyway.
-
 Need to read:
 https://styled-components.com/docs/api#helpers                      <<< About create GlobalStyle
 
