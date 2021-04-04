@@ -155,8 +155,25 @@ module.exports = override(
 
 C:\Temp\otc-ui-component-library>npm install customize-cra --save-dev
 
+=======================================================================================
+Currently available babel options:
 
-
+{
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": false,
+        "displayName": false,
+        "fileName": false,
+        "minify": false,
+        "transpileTemplateLiterals": false      <<< another minifications option. Transpiles styled-components tagged template literals down to a smaller representation than what Babel normally creates.
+        "pure": true                            <<< Dead Code Elimination. By default minifiers cannot properly perform dead code elimination on them because they are assumed to have side effects.
+        "namespace": "my-app"                   <<< The namespace will ensure that your class names will be unique; this setting is handy when you are working with micro frontends where class name collision can occur
+      }
+    ]
+  ]
+}
 
 
 

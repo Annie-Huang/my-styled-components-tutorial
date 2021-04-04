@@ -2,6 +2,10 @@ https://styled-components.com/
 https://stylis.js.org/
 https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21
 https://mxstbr.blog/2016/11/styled-components-magic-explained/
+https://github.com/styled-components/styled-components-website/tree/master/test
+https://styled-components.com/docs/tooling#stylelint    <<< Doesn't seem worth doing this.
+                                                            e.g. it doesn't like // as comment within css, will log "Unknown word   CssSyntaxError"
+
 
 Need to read:
 https://github.com/styled-components/jest-styled-components         <<< Need to rea this to see if you can do testing.
@@ -10,7 +14,7 @@ https://styled-components.com/docs/api#helpers                      <<< About cr
 https://github.com/Annie-Huang/my-styled-components-tutorial
 ######################################################################################
 Up to:
-https://styled-components.com/docs/api#typescript
+https://styled-components.com/docs/tooling#typescript-plugin
 
 
 Learning from version 5:
@@ -590,6 +594,7 @@ TypeScript. className needs to pass in if you component want to use the classnam
       }
     }
     ------------------
+To use function components and have typechecking for the props you'll need to define the component alongside with its type.
     interface BoxProps {
       theme?: ThemeInterface;
       borders?: boolean;
