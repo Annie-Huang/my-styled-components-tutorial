@@ -10,6 +10,7 @@ import {
   Button5,
   Button6,
   Button7,
+  Button9,
   invertTheme6,
   ReversedButton,
   theme5,
@@ -24,6 +25,7 @@ import { Input, Input2, Input3, PasswordInput2 } from './components/Input';
 import { GlobalStyle, Thing, Thing2, Thing3 } from './components/Thing';
 import { Rotate } from './components/Rotate';
 import { Comp } from './components/Comp';
+import { Box } from './components/Box';
 
 const Container = styled.div`
   text-align: center;
@@ -187,6 +189,26 @@ function App() {
         <Button7 style={{ 'background-color': 'yellow' }}>
           Styled through inline
         </Button7>
+      </Container>
+      <Container>
+        <ThemeProvider theme={{ mode: 'light' }}>
+          <Box>Hello World</Box>
+        </ThemeProvider>
+      </Container>
+      <Container>
+        <ThemeProvider theme={{ mode: 'light' }}>
+          <Button9>Default</Button9>
+          <Button9 variant='primary'>Primary</Button9>
+          <Button9 variant='success'>Success</Button9>
+          <Button9 variant='warning'>Warning</Button9>
+        </ThemeProvider>
+        <br />
+        <ThemeProvider theme={{ mode: 'dark' }}>
+          <Button9>Default </Button9>
+          <Button9 variant='primary'>Primary</Button9>
+          <Button9 variant='success'>Success</Button9>
+          <Button9 variant='warning'>Warning</Button9>
+        </ThemeProvider>
       </Container>
     </div>
   );

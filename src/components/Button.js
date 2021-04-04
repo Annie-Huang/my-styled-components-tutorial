@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
+import PropTypes from 'prop-types';
 
 export const Button = styled.button`
   background: transparent;
@@ -144,6 +146,7 @@ export const theme7 = {
   main: 'mediumseagreen',
 };
 
+// Sample for test file
 export const Button8 = styled.button`
   color: red;
   @media (max-width: 640px) {
@@ -152,3 +155,23 @@ export const Button8 = styled.button`
     }
   }
 `;
+
+// Sample for styled-theming
+const backgroundColor = theme.variants('mode', 'variant', {
+  default: { light: 'gray', dark: 'darkgray' },
+  primary: { light: 'blue', dark: 'darkblue' },
+  success: { light: 'green', dark: 'darkgreen' },
+  warning: { light: 'orange', dark: 'darkorange' },
+});
+
+export const Button9 = styled.button`
+  background-color: ${backgroundColor};
+`;
+
+Button9.propTypes = {
+  variant: PropTypes.oneOf(['default', 'primary', 'success', 'warning']),
+};
+
+Button9.defaultProps = {
+  variant: 'default',
+};

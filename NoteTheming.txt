@@ -1,0 +1,48 @@
+https://styled-components.com/docs/tooling#styled-theming
+
+-----------------------------------------------------------------
+
+C:\react\my-styled-components-tutorial>npm install --save styled-theming
+
+<ThemeProvider theme={{ mode: "dark", size: "large" }}>
+<ThemeProvider theme={{ mode: modes => modes.dark, size: sizes => sizes.large }}>
+
+
+<ThemeProvider theme={{ mode: 'light' }}>
+  <Box>Hello World</Box>
+</ThemeProvider>
+
+<ThemeProvider theme={{ mode: "light" }}/>
+<ThemeProvider theme={{ mode: "dark" }}/>
+theme("mode", {
+  light: "...",
+  dark: "...",
+});
+
+-------------------
+
+
+theme('font', {
+  sansSerif: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+  serif: "Georgia, Times, 'Times New Roman', serif",
+  monoSpaced: 'Consolas, monaco, monospace',
+});
+theme('mode', {
+  light: props => props.theme.userProfileAccentColor.light,
+  dark: props => props.theme.userProfileAccentColor.dark,
+})
+
+-------------------
+
+const backgroundColor = theme.variants('mode', 'variant', {
+  default: { light: 'gray', dark: 'darkgray' },
+  primary: { light: 'blue', dark: 'darkblue' },
+  success: { light: 'green', dark: 'darkgreen' },
+  warning: { light: 'orange', dark: 'darkorange' },
+});
+<ThemeProvider theme={{ mode: 'dark' }}>
+  <Button9>Default </Button9>
+  <Button9 variant='primary'>Primary</Button9>
+  <Button9 variant='success'>Success</Button9>
+  <Button9 variant='warning'>Warning</Button9>
+</ThemeProvider>
