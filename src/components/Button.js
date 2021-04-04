@@ -175,3 +175,16 @@ Button9.propTypes = {
 Button9.defaultProps = {
   variant: 'default',
 };
+
+// Sample to attach and override classname:
+export const Button10 = styled.button.attrs((props) => ({
+  className: 'small',
+}))`
+  background: black;
+  color: white;
+  cursor: pointer;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid black;
+  border-radius: 3px;
+`;

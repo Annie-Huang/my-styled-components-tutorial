@@ -234,6 +234,26 @@ Each wrapper to override nested uses of .attrs, similarly to how css properties 
       border: 2px solid aqua;
     `;
 
+13.1
+Use CSS frameworks with styled-component. Attach className | overriding className.
+You can add it using the createGlobalStyle API. This is also useful for things like CSS resets.
+    export const Button10 = styled.button.attrs(props => ({         <<< Button.js
+      className: "small",
+    }))`
+      ...
+    `;
+    .small {                    <<< App.css
+      color: white;
+      font-size: 0.5em;
+    }
+    .big {
+      color: white;
+      font-size: 1.4em;
+    }
+    <Button10>Styled Components</Button10>      <<< App.js
+    <Button10 className='big'>The new way to style components!</Button10>
+
+
 14.
 Animations: keyframe
 Do it outside the styled-component

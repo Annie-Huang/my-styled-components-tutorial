@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from 'styled-components/macro';
 import {
   Button,
   Button1,
+  Button10,
   Button2,
   Button3,
   Button4,
@@ -222,6 +223,11 @@ function App() {
           <Child>Second</Child>
           <Child>Third</Child>
         </EqualDivider>
+      </Container>
+      <Container>
+        <Button10>Styled Components</Button10>
+        {/* Here we attach the class .big to this specific instance of the Button */}
+        <Button10 className='big'>The new way to style components!</Button10>
       </Container>
     </div>
   );
