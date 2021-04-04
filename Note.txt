@@ -678,3 +678,29 @@ The other is dynamic, meaning it will be different for every element of your sty
 
 The styled component <Button /> would render with the same static class every time.
 If the styles are changed using interpolations, like <Button secondary />, then the dynamic class will be a different one, while the static class would remain the same.
+
+34.
+Avoid declaring styled components in the render method.
+By declaring a styled component inside the render method of a react component, you are dynamically creating a new component on every render.
+    Wrong:
+    const Header = () => {
+      const Title = styled.h1`
+        font-size: 10px;
+      `
+      return (
+        <div>
+          <Title />
+        </div>
+      )
+    }
+    Correct:
+    const Title = styled.h1`
+      font-size: 10px;
+    `
+    const Header = () => {
+      return (
+        <div>
+          <Title />
+        </div>
+      )
+    }
