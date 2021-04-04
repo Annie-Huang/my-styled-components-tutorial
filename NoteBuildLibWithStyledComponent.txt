@@ -1,0 +1,43 @@
+https://styled-components.com/docs/faqs#i-am-a-library-author-should-i-bundle-styledcomponents-with-my-library
+https://webpack.js.org/guides/author-libraries/
+
+=======================================================================================================================
+
+
+1. Marking styled-components as external in your package dependencies:
+------------------------------------------------------------------------------
+- Move styled-components from dependencies to devDependencies and include it in the peerDependencies list in your package.json file
+- Moving styled-components to devDependencies will guarantee that it wouldn't be installed along with your library
+  (npm install or yarn add will ignore devDependencies when a library is installed).
+- Adding styled-components to peerDependencies will signal your library consumers that styled-components is not included with the library and they need to install it themselves.
+- >= 3. This allows future versions of styled-components to work automatically
+
+
+package.json:
+{
+-   "dependencies" : {
++   "devDependencies" : {
+      "styled-components": "^3.4.9"
+    },
++   "peerDependencies" : {
++     "styled-components": ">= 3"
++   }
+  }
+
+
+2. Removing styled-components from your library bundle
+----------------------------------------------------------------
+If you are bundling your library before shipping it, make sure that you are not bundling styled-components along with it. Here are some examples of how to do this with some popular module bundling tools:
+
+With Webpack:
+If you are using Webpack, you should provide an externals option in your config:
+modules.export = {
+    entry: "my-awesome-library.js",
++   externals: {
++     "styled-components": {
++       commonjs: "styled-components",
++       commonjs2: "styled-components",
++       amd: "styled-components",
++     },
++   },
+  }
