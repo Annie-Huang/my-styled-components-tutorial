@@ -403,7 +403,8 @@ make sure your component attaches the passed-in className to a DOM node:
     }
 
 22.
-Issues with specificity
+Issues with specificity | Override styles with higher specificity
+&&& is the replacement for !important
 (point 10 is also about specificity)
 styled-components injects its styles during runtime at the end of the <head> by default.    <<< !!! important concept.
 Thus its styles win over other single classname selectors.
@@ -431,6 +432,18 @@ which can do:
     /* output */
     .c0.c0.c0 {
       background-color: blue;
+    }
+Another example:
+    const MyStyledComponent = styled(AlreadyStyledComponent)`
+      &&& {
+        color: palevioletred;
+        font-weight: bold;
+      }
+    `
+    Output is:
+    .MyStyledComponent-asdf123.MyStyledComponent-asdf123.MyStyledComponent-asdf123 {
+      color: palevioletred;
+      font-weight: bold;
     }
 
 23.
