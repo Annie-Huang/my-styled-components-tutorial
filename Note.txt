@@ -234,6 +234,10 @@ Each wrapper to override nested uses of .attrs, similarly to how css properties 
       border: 2px solid aqua;
     `;
 
+When to use attrs?
+The rule of thumb is to use attrs when you want every instance of a styled component to have that prop, and pass props directly when every instance needs a different one:
+The same goes for props that can be inferred based on the "mode" of another prop. In this case you can set a property on attrs to a function that computes that prop based on other props.
+
 
 14.
 Animations: keyframe
