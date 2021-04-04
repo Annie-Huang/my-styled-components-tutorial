@@ -663,3 +663,14 @@ Override inline styles. Can only be done through !important:
         color: blue !important;
       }
     `
+
+33.
+The two classes in the DOM nodes
+One is static per component, meaning each element of a styled component has this class. it's used to quickly identify which styled component a DOM objects belongs to or to make minor changes in the DevTools.
+The other is dynamic, meaning it will be different for every element of your styled component with different props
+    <div class="EqualDivider__Child-sc-1h7mab3-1 llHKqW">Third</div>
+    static: sc-1h7mab3-1
+    dynamic: llHKqW
+
+The styled component <Button /> would render with the same static class every time.
+If the styles are changed using interpolations, like <Button secondary />, then the dynamic class will be a different one, while the static class would remain the same.
