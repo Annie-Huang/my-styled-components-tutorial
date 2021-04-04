@@ -6,9 +6,12 @@ https://github.com/styled-components/styled-components-website/tree/master/test
 https://styled-components.com/docs/tooling#stylelint    <<< Doesn't seem worth doing this.
                                                             e.g. it doesn't like // as comment within css, will log "Unknown word   CssSyntaxError"
 
+https://styled-components.com/docs/tooling#jest-integration
+https://github.com/styled-components/jest-styled-components
+    <<< This is nice to have jest-style-components, which will log styling info in the snapshot file as well.
+        But the whole snapshot file seems fake to me anyway.
 
 Need to read:
-https://github.com/styled-components/jest-styled-components         <<< Need to rea this to see if you can do testing.
 https://styled-components.com/docs/api#helpers                      <<< About create GlobalStyle
 
 https://github.com/Annie-Huang/my-styled-components-tutorial

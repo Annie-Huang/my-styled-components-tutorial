@@ -1,0 +1,4 @@
+C:\react\my-styled-components-tutorial>npm install --save-dev stylelint stylelint-processor-styled-components stylelint-config-styled-components stylelint-config-reco
+mmended
+
+C:\react\my-styled-components-tutorial>npm run lint:css
