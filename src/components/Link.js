@@ -29,7 +29,10 @@ export const Icon2 = styled.svg`
   width: 48px;
   height: 48px;
 
-  ${Link2}:hover & {
+  /* can remove sc-selector below if you are not using stylelint 
+    ${Link2}:hover & {
+  */
+  ${/* sc-selector */ Link2}:hover & {
     fill: rebeccapurple;
   }
 `;

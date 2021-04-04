@@ -50,7 +50,6 @@ export const TomatoButton2 = styled(Button2)`
  * "as" polymorphic prop
  */
 export const Button3 = styled.button`
-  display: inline-block;
   color: palevioletred;
   font-size: 1em;
   margin: 1em;
@@ -68,7 +67,6 @@ export const TomatoButton3 = styled(Button3)`
  * "as" polymorphic prop works with custom components too!
  */
 export const Button4 = styled.button`
-  display: inline-block;
   color: palevioletred;
   font-size: 1em;
   margin: 1em;

@@ -1,4 +1,20 @@
+https://styled-components.com/docs/tooling#stylelint
+    <<< Doesn't seem worth doing this.
+        e.g. it doesn't like // as comment within css, will log "Unknown word   CssSyntaxError"
+
+---------------------------
+
 C:\react\my-styled-components-tutorial>npm install --save-dev stylelint stylelint-processor-styled-components stylelint-config-styled-components stylelint-config-reco
 mmended
 
 C:\react\my-styled-components-tutorial>npm run lint:css
+
+
+Tags
+The full list of supported tags:
+
+sc-block
+sc-selector
+sc-declaration
+sc-property
+sc-value

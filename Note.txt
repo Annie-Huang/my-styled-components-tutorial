@@ -3,8 +3,6 @@ https://stylis.js.org/
 https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21
 https://mxstbr.blog/2016/11/styled-components-magic-explained/
 https://github.com/styled-components/styled-components-website/tree/master/test
-https://styled-components.com/docs/tooling#stylelint    <<< Doesn't seem worth doing this.
-                                                            e.g. it doesn't like // as comment within css, will log "Unknown word   CssSyntaxError"
 
 https://styled-components.com/docs/tooling#jest-integration
 https://github.com/styled-components/jest-styled-components
