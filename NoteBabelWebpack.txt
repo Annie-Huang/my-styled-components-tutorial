@@ -175,14 +175,37 @@ Currently available babel options:
   ]
 }
 
+=======================================================================================
+Try this but also doesn't work:
+
+https://styled-components.com/docs/faqs#how-do-i-use-styledcomponents-with-createreactapp
+https://github.com/timarney/react-app-rewired
+https://github.com/withspectrum/react-app-rewire-styled-components
 
 
+C:\Temp\otc-ui-component-library>npm install react-app-rewired --save-dev
+
+in package.json:
+----------------------
+    "test1": "react-scripts test",
+    "test1": "react-scripts test SKIP_PREFLIGHT_CHECK=true",
 
 
+create config-overrides.js:
+----------------------------------
+const rewireStyledComponents = require("react-app-rewire-styled-components");
+module.exports = function override(config, env) {
+  config = rewireStyledComponents(config, env, {
+    ssr: true,
+  });
+  return config;
+};
 
 
-
-
+C:\Temp\otc-ui-component-library>npm install react-app-rewire-styled-components --save-dev
+Got error of:
+npm ERR! Could not resolve dependency:
+npm ERR! peer styled-components@"2.x || 3.x" from react-app-rewire-styled-components@3.0.2
 
 
 

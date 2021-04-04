@@ -3,6 +3,7 @@ https://stylis.js.org/
 https://medium.com/building-crowdriff/styled-components-to-use-or-not-to-use-a6bb4a7ffc21
 https://mxstbr.blog/2016/11/styled-components-magic-explained/
 https://github.com/styled-components/styled-components-website/tree/master/test
+https://styled-components.com/docs/faqs#which-browsers-are-supported
 
 Need to read:
 https://styled-components.com/docs/api#helpers                      <<< About create GlobalStyle
